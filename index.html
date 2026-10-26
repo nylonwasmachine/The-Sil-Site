@@ -1,6 +1,5 @@
-from pathlib import Path
 
-html = r'''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
@@ -9,29 +8,71 @@ html = r'''<!DOCTYPE html>
 <title>Het Sil-archief — De man 147.000 kilometer onder de grond</title>
 <style>
 :root{--bg:#10130f;--panel:#191e17;--cream:#f1ead7;--muted:#b9b7a7;--gold:#d7a84c;--rust:#8c542f;--line:#34392e;--green:#82916c}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:85px}body{margin:0;background:var(--bg);color:var(--cream);font-family:Georgia,"Times New Roman",serif;line-height:1.75}
-a{color:var(--gold)}.wrap{width:min(1120px,92%);margin:auto}.eyebrow{font:700 .74rem/1.5 Arial,sans-serif;text-transform:uppercase;letter-spacing:.2em;color:var(--gold)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:Georgia,"Times New Roman",serif;line-height:1.75}
+a{color:var(--gold)}
+.wrap{width:min(1120px,92%);margin:auto}
+.eyebrow{font:700 .74rem/1.5 Arial,sans-serif;text-transform:uppercase;letter-spacing:.2em;color:var(--gold)}
 header{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 75% 25%,#4a3820 0,transparent 35%),linear-gradient(130deg,#11150f,#252a1e 60%,#161914);min-height:690px;display:flex;align-items:center}
 header:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 80px,#ffffff05 81px 82px);pointer-events:none}
 nav{position:absolute;top:0;left:0;right:0;padding:20px 0;z-index:2;border-bottom:1px solid #ffffff12;background:#10130f55;backdrop-filter:blur(8px);font:700 .72rem Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
-.navinner{display:flex;justify-content:space-between;gap:18px;align-items:center}.navlinks{display:flex;gap:17px;flex-wrap:wrap}.navlinks a{text-decoration:none;color:#d8d4c4}.brand{color:var(--gold);text-decoration:none}
-.hero{position:relative;z-index:1;padding:140px 0 75px;max-width:850px}.hero h1{font-size:clamp(3.4rem,9vw,7.6rem);line-height:.91;letter-spacing:-.055em;margin:20px 0 26px;font-weight:normal}.hero h1 span{color:var(--gold);font-style:italic}.hero p{font-size:1.2rem;max-width:670px;color:#d1cebf}.stamp{display:inline-block;border:1px solid #d7a84c88;padding:8px 12px;color:var(--gold);font:700 .72rem Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;transform:rotate(-2deg);margin-top:18px}
+.navinner{display:flex;justify-content:space-between;gap:18px;align-items:center}
+.navlinks{display:flex;gap:17px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;color:#d8d4c4}
+.brand{color:var(--gold);text-decoration:none}
+.hero{position:relative;z-index:1;padding:140px 0 75px;max-width:850px}
+.hero h1{font-size:clamp(3.4rem,9vw,7.6rem);line-height:.91;letter-spacing:-.055em;margin:20px 0 26px;font-weight:normal}
+.hero h1 span{color:var(--gold);font-style:italic}
+.hero p{font-size:1.2rem;max-width:670px;color:#d1cebf}
+.stamp{display:inline-block;border:1px solid #d7a84c88;padding:8px 12px;color:var(--gold);font:700 .72rem Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;transform:rotate(-2deg);margin-top:18px}
 .hero-meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:32px;font:700 .72rem Arial,sans-serif;text-transform:uppercase;letter-spacing:.1em;color:#bdbba9}
-section{padding:86px 0;border-bottom:1px solid var(--line)}h2{font-size:clamp(2rem,4vw,3.5rem);line-height:1.08;font-weight:normal;margin:10px 0 25px;letter-spacing:-.03em}h3{font-size:1.45rem;line-height:1.2;font-weight:normal;margin:0 0 12px}h4{font-size:1.08rem;font-weight:normal;color:var(--gold);margin:22px 0 5px}.intro{font-size:1.15rem;color:#d2cfbf;max-width:800px}.prose{max-width:820px}.prose p{color:#d0cebf}.pullquote{margin:32px 0;padding:22px 28px;border-left:3px solid var(--gold);background:#191e17;font-size:1.3rem;font-style:italic;color:#eee2c2}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}.card{background:var(--panel);border:1px solid var(--line);padding:25px;border-radius:3px}.number{font:700 .7rem Arial,sans-serif;color:var(--gold);letter-spacing:.15em}.card p{color:var(--muted);margin-bottom:0}
-.timeline{border-left:1px solid #80633b;margin:35px 0 0 8px;padding-left:28px;display:grid;gap:34px}.event{position:relative}.event:before{content:"";position:absolute;left:-34px;top:8px;width:10px;height:10px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 5px #d7a84c18}.year{font:700 .75rem Arial,sans-serif;letter-spacing:.16em;color:var(--gold)}
-.formula{background:#0b0e0a;border:1px solid #4e513f;padding:28px;margin:28px 0;overflow-x:auto}.equation{font-family:"Courier New",monospace;font-size:clamp(1.05rem,3vw,1.7rem);color:#f0cf7c;text-align:center;padding:12px 0;white-space:nowrap}.formula small{display:block;text-align:center;color:var(--muted);font:.85rem Arial,sans-serif}.formula-note{color:#a8ac9a;font-size:.9rem}
-.tablewrap{overflow-x:auto;margin:25px 0}table{border-collapse:collapse;width:100%;min-width:520px;background:#171b14}th,td{border:1px solid var(--line);padding:13px 15px;text-align:left}th{font:700 .72rem Arial,sans-serif;text-transform:uppercase;letter-spacing:.1em;color:var(--gold)}td{color:#d0cebf}
-.quotegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:35px}.quote-card{background:var(--panel);border:1px solid var(--line);overflow:hidden}.quote-image{min-height:330px;display:flex;flex-direction:column;justify-content:space-between;padding:26px;position:relative;overflow:hidden;background:linear-gradient(145deg,#353c2d,#171b14 58%,#654629)}
+section{padding:86px 0;border-bottom:1px solid var(--line)}
+h2{font-size:clamp(2rem,4vw,3.5rem);line-height:1.08;font-weight:normal;margin:10px 0 25px;letter-spacing:-.03em}
+h3{font-size:1.45rem;line-height:1.2;font-weight:normal;margin:0 0 12px}
+h4{font-size:1.08rem;font-weight:normal;color:var(--gold);margin:22px 0 5px}
+.intro{font-size:1.15rem;color:#d2cfbf;max-width:800px}
+.prose{max-width:820px}
+.prose p{color:#d0cebf}
+.pullquote{margin:32px 0;padding:22px 28px;border-left:3px solid var(--gold);background:#191e17;font-size:1.3rem;font-style:italic;color:#eee2c2}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}
+.card{background:var(--panel);border:1px solid var(--line);padding:25px;border-radius:3px}
+.number{font:700 .7rem Arial,sans-serif;color:var(--gold);letter-spacing:.15em}
+.card p{color:var(--muted);margin-bottom:0}
+.timeline{border-left:1px solid #80633b;margin:35px 0 0 8px;padding-left:28px;display:grid;gap:34px}
+.event{position:relative}
+.event:before{content:"";position:absolute;left:-34px;top:8px;width:10px;height:10px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 5px #d7a84c18}
+.year{font:700 .75rem Arial,sans-serif;letter-spacing:.16em;color:var(--gold)}
+.formula{background:#0b0e0a;border:1px solid #4e513f;padding:28px;margin:28px 0;overflow-x:auto}
+.equation{font-family:"Courier New",monospace;font-size:clamp(1.05rem,3vw,1.7rem);color:#f0cf7c;text-align:center;padding:12px 0;white-space:nowrap}
+.formula small{display:block;text-align:center;color:var(--muted);font:.85rem Arial,sans-serif}
+.formula-note{color:#a8ac9a;font-size:.9rem}
+.tablewrap{overflow-x:auto;margin:25px 0}
+table{border-collapse:collapse;width:100%;min-width:520px;background:#171b14}
+th,td{border:1px solid var(--line);padding:13px 15px;text-align:left}
+th{font:700 .72rem Arial,sans-serif;text-transform:uppercase;letter-spacing:.1em;color:var(--gold)}
+td{color:#d0cebf}
+.quotegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:35px}
+.quote-card{background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.quote-image{min-height:330px;display:flex;flex-direction:column;justify-content:space-between;padding:26px;position:relative;overflow:hidden;background:linear-gradient(145deg,#353c2d,#171b14 58%,#654629)}
 .quote-image:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 85% 20%,#d7a84c55,transparent 35%),repeating-linear-gradient(135deg,transparent 0 32px,#ffffff08 33px 34px)}
 .quote-image:after{content:"";position:absolute;width:190px;height:190px;border:1px solid #d7a84c33;border-radius:50%;right:-55px;bottom:-80px;box-shadow:0 0 0 18px #d7a84c0a,0 0 0 38px #d7a84c08}
-.quote-image:nth-child(2){background:linear-gradient(145deg,#3e3027,#171a14 60%,#4a4c35)}.quote-image:nth-child(3){background:linear-gradient(145deg,#29372e,#11150f 62%,#65502c)}.quote-image:nth-child(4){background:linear-gradient(145deg,#403526,#171a14 60%,#343c2d)}
-.quote-image>*{position:relative;z-index:1}.quote-mark{font-size:3.5rem;line-height:.7;color:var(--gold)}.quote-image blockquote{font-size:clamp(1.35rem,2.8vw,2rem);line-height:1.2;margin:20px 0;font-style:italic;max-width:470px}.quote-image cite{font:700 .7rem Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#d9bd7e;font-style:normal}
-.quote-upload{padding:18px}.quote-upload label{display:block;font:700 .72rem Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}.quote-upload input{width:100%;font: .9rem Arial,sans-serif;color:var(--muted)}.quote-upload p{font: .8rem Arial,sans-serif;color:var(--muted);margin:8px 0 0}
-.quote-photo{display:none;width:100%;max-height:360px;object-fit:cover;margin-top:12px;border:1px solid #ffffff22}.quote-card.has-photo .quote-photo{display:block}.quote-card.has-photo .quote-image{min-height:220px}.quote-card.has-photo .quote-image:after{opacity:.3}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:35px}.stat{padding:20px 12px;border-top:2px solid var(--gold);background:#191e17;text-align:center}.stat strong{display:block;font-size:2rem;font-weight:normal;color:var(--gold)}.stat span{font:700 .7rem Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
-.callout{padding:26px;background:#1a2118;border:1px solid #414a35;margin:28px 0}.callout strong{color:var(--gold)}.disclaimer{font-size:.82rem;color:#8f9184;border-left:2px solid var(--rust);padding-left:15px;margin-top:28px;max-width:800px}
-footer{padding:40px 0;color:#aaa996;font:.82rem Arial,sans-serif}.footerinner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.backtop{position:fixed;right:18px;bottom:18px;z-index:5;background:#d7a84c;color:#17180f;text-decoration:none;font:700 .72rem Arial,sans-serif;padding:10px 13px;border-radius:2px;box-shadow:0 4px 20px #0006}
+.quote-image>*{position:relative;z-index:1}
+.quote-mark{font-size:3.5rem;line-height:.7;color:var(--gold)}
+.quote-image blockquote{font-size:clamp(1.35rem,2.8vw,2rem);line-height:1.2;margin:20px 0;font-style:italic;max-width:470px}
+.quote-image cite{font:700 .7rem Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#d9bd7e;font-style:normal}
+.quote-photo{display:block;width:100%;max-height:520px;object-fit:contain;background:#0b0e0a;border-top:1px solid var(--line)}
+.quote-photo[hidden]{display:none}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:35px}
+.stat{padding:20px 12px;border-top:2px solid var(--gold);background:#191e17;text-align:center}
+.stat strong{display:block;font-size:2rem;font-weight:normal;color:var(--gold)}
+.stat span{font:700 .7rem Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.callout{padding:26px;background:#1a2118;border:1px solid #414a35;margin:28px 0}
+.callout strong{color:var(--gold)}
+.disclaimer{font-size:.82rem;color:#8f9184;border-left:2px solid var(--rust);padding-left:15px;margin-top:28px;max-width:800px}
+footer{padding:40px 0;color:#aaa996;font:.82rem Arial,sans-serif}
+.footerinner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.backtop{position:fixed;right:18px;bottom:18px;z-index:5;background:#d7a84c;color:#17180f;text-decoration:none;font:700 .72rem Arial,sans-serif;padding:10px 13px;border-radius:2px;box-shadow:0 4px 20px #0006}
 @media(max-width:760px){.grid{grid-template-columns:1fr}.quotegrid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}header{min-height:650px}.navinner{align-items:flex-start;flex-direction:column}.navlinks{gap:10px}.hero{padding-top:175px}section{padding:62px 0}.quote-image{min-height:270px}}
 </style>
 </head>
@@ -57,6 +98,7 @@ footer{padding:40px 0;color:#aaa996;font:.82rem Arial,sans-serif}.footerinner{di
 <div class="pullquote">“Sommige mensen volgen hun dromen. Sil volgde een steenkoolader tot de aardkorst officieel bezwaar maakte.”</div>
 <div class="stats"><div class="stat"><strong>65</strong><span>Jaar op aarde</span></div><div class="stat"><strong>2</strong><span>Voltijdbanen</span></div><div class="stat"><strong>147.000 km</strong><span>Diepste expeditie</span></div><div class="stat"><strong>1</strong><span>Onverklaarde steen</span></div></div>
 </div></section>
+
 <section id="jeugd"><div class="wrap">
 <div class="eyebrow">Hoofdstuk II · De eerste graafbeweging</div><h2>De kinderjaren van<br>een ondergronds genie.</h2>
 <div class="prose">
@@ -73,8 +115,13 @@ footer{padding:40px 0;color:#aaa996;font:.82rem Arial,sans-serif}.footerinner{di
 <p>Tijdens een schoolwedstrijd moest Sil de dichtheid van een steen berekenen. Hij woog de steen, mat het volume en kreeg een redelijk antwoord. Daarna woog hij de steen opnieuw om te controleren of hij nog steeds dezelfde steen was. Toen de waarde licht afweek, verklaarde hij dat het object “tussen de metingen van identiteit was veranderd”.</p>
 <p>De jury kende hem een eervolle vermelding toe voor volharding. Sil vond dat een diplomatieke manier om te zeggen dat ze zijn ontdekking niet begrepen. Hij begon te dromen van een carrière waarin hij niet hoefde te kiezen tussen een laboratorium en een diepe, diepe kuil.</p>
 </div>
-<div class="grid"><article class="card"><div class="number">JEUGDOBJECT 01</div><h3>De houten lepel</h3><p>Volgens Sil het eerste instrument waarmee hij de aarde systematisch ondervroeg. De lepel is nooit teruggevonden.</p></article><article class="card"><div class="number">JEUGDOBJECT 02</div><h3>De wortel</h3><p>De eerste ondergrondse vondst. In latere lezingen noemde hij dit “een minerale teleurstelling met bladeren”.</p></article><article class="card"><div class="number">JEUGDOBJECT 03</div><h3>Het notitieboek</h3><p>Bevat 84 pagina’s, waarvan 39 bestaan uit tekeningen van tunnels die niet veilig zouden zijn geweest.</p></article></div>
+<div class="grid">
+<article class="card"><div class="number">JEUGDOBJECT 01</div><h3>De houten lepel</h3><p>Volgens Sil het eerste instrument waarmee hij de aarde systematisch ondervroeg. De lepel is nooit teruggevonden.</p></article>
+<article class="card"><div class="number">JEUGDOBJECT 02</div><h3>De wortel</h3><p>De eerste ondergrondse vondst. In latere lezingen noemde hij dit “een minerale teleurstelling met bladeren”.</p></article>
+<article class="card"><div class="number">JEUGDOBJECT 03</div><h3>Het notitieboek</h3><p>Bevat 84 pagina’s, waarvan 39 bestaan uit tekeningen van tunnels die niet veilig zouden zijn geweest.</p></article>
+</div>
 </div></section>
+
 <section id="opleiding"><div class="wrap">
 <div class="eyebrow">Hoofdstuk III · Opleiding en twijfelachtige titels</div><h2>Professor volgens zichzelf.</h2>
 <div class="prose">
@@ -88,6 +135,7 @@ footer{padding:40px 0;color:#aaa996;font:.82rem Arial,sans-serif}.footerinner{di
 <div class="event"><div class="year">2036</div><h3>De avondstudie</h3><p>Na zijn diensten bestudeerde hij materiaaleigenschappen. Hij hield zijn berekeningen bij in een schrift met de titel <em>Waarom de baas ongelijk heeft: editie 1 tot en met 17</em>.</p></div>
 </div>
 </div></section>
+
 <section id="mijnbouw"><div class="wrap">
 <div class="eyebrow">Hoofdstuk IV · De dagelijkse arbeid</div><h2>Een eerlijke dag<br>onder de grond.</h2>
 <div class="prose">
@@ -99,32 +147,45 @@ footer{padding:40px 0;color:#aaa996;font:.82rem Arial,sans-serif}.footerinner{di
 <p>Zijn collega’s waardeerden zijn inzet, vooral wanneer hij de zwaarste kar duwde. Ze waardeerden zijn colleges over de entropie van snacks iets minder. Toch bleef Sil ervan overtuigd dat mijnbouw en natuurkunde bij elkaar hoorden: de ene leverde de grondstoffen, de andere leverde de reden waarom iedereen te laat thuis was.</p>
 </div>
 </div></section>
+
 <section id="wetenschap"><div class="wrap">
 <div class="eyebrow">Hoofdstuk V · De vergelijkingen</div><h2>De wetenschap van<br>alles wat zwaar is.</h2>
 <p class="intro">Sil publiceerde zijn bevindingen in het fictieve tijdschrift <em>Journal of Extremely Deep Things</em>. De meeste formules hieronder zijn parodieën en geen erkende natuurkundige wetten.</p>
+
 <h3>1. De formule van kolenmassa</h3>
 <div class="formula"><div class="equation">M<sub>kolen</sub> = ρ × V × (1 − L) + P<sub>pauze</sub></div><small>Sil’s Unified Coal Equation · 2041</small></div>
 <p>Hier staat ρ voor de dichtheid, V voor het volume, L voor het verlies aan materiaal en P<sub>pauze</sub> voor de zogenoemde pauzecorrectie. De eerste drie onderdelen zijn gebaseerd op gewone massaberekening; de pauzecorrectie is volledig door Sil verzonnen.</p>
-<div class="tablewrap"><table><thead><tr><th>Symbool</th><th>Betekenis</th><th>Sil’s uitleg</th></tr></thead><tbody><tr><td>ρ</td><td>Dichtheid</td><td>Hoeveel steenkool er in een hoeveelheid ruimte past.</td></tr><tr><td>V</td><td>Volume</td><td>Hoeveel ruimte de hoop inneemt, zonder opscheppen.</td></tr><tr><td>L</td><td>Verliesfactor</td><td>Stof, gruis en de mysterieuze verdwijning van lunchgeld.</td></tr><tr><td>P<sub>pauze</sub></td><td>Pauzecorrectie</td><td>Een niet-erkende grootheid die vooral op vrijdag groot is.</td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>Symbool</th><th>Betekenis</th><th>Sil’s uitleg</th></tr></thead><tbody>
+<tr><td>ρ</td><td>Dichtheid</td><td>Hoeveel steenkool er in een hoeveelheid ruimte past.</td></tr>
+<tr><td>V</td><td>Volume</td><td>Hoeveel ruimte de hoop inneemt, zonder opscheppen.</td></tr>
+<tr><td>L</td><td>Verliesfactor</td><td>Stof, gruis en de mysterieuze verdwijning van lunchgeld.</td></tr>
+<tr><td>P<sub>pauze</sub></td><td>Pauzecorrectie</td><td>Een niet-erkende grootheid die vooral op vrijdag groot is.</td></tr>
+</tbody></table></div>
 <p>Voor een hoop met dichtheid 1.350 kg/m³, volume 2 m³ en verliesfactor 0,08 rekende Sil:</p>
 <div class="formula"><div class="equation">1.350 × 2 × (1 − 0,08) = 2.484 kg</div><small>Voorbeeldberekening vóór de onofficiële pauzecorrectie.</small></div>
+
 <h3>2. De wet van de verloren helm</h3>
 <div class="formula"><div class="equation">T<sub>zoeken</sub> = D × C²</div><small>Helmet Disappearance Principle · 2044</small></div>
 <p>D is de afstand tot de plek waar je je helm voor het laatst zag en C is het aantal collega’s dat zegt: “Heb je op je hoofd gekeken?” Sil beweerde dat de zoektijd kwadratisch toeneemt zodra iemand die vraag stelt. Dit is nooit wetenschappelijk bevestigd, maar heeft meerdere vergaderingen verlengd.</p>
+
 <h3>3. De thermodynamica van koffie</h3>
 <div class="formula"><div class="equation">E<sub>hoop</sub> = K × ΔT × P</div><small>Warm Beverage Retention Model · 2048</small></div>
 <p>K staat voor de koffiefactor, ΔT voor het temperatuurverschil en P voor de mate waarin een collega beweert dat de koffie “nog prima” is. Sil gebruikte deze formule om te verklaren waarom een kop koffie binnen drie minuten koud kon worden zodra hij eindelijk ging zitten.</p>
+
 <h3>4. De wet van de ondergrondse vertraging</h3>
 <div class="formula"><div class="equation">t<sub>terug</sub> = d / v + 7 min × N</div><small>Return-to-Surface Approximation · 2051</small></div>
 <p>d is de afstand tot de uitgang, v de gemiddelde loopsnelheid en N het aantal keren dat iemand zegt “wacht, ik moet nog iets pakken”. De zeven minuten zijn geen universele constante; Sil koos ze omdat hij ze overtuigend vond.</p>
+
 <h3>5. De universele snackzwaartekracht</h3>
 <div class="formula"><div class="equation">G<sub>snack</sub> = m × h × H</div><small>Snack Gravitational Burden · 2053</small></div>
 <p>m is de massa van de snack, h de resterende werktijd en H de hongerfactor. Volgens Sil voelt een koekje zwaarder wanneer je het nog niet mag eten. Een onafhankelijke test wees uit dat het koekje vooral sneller verdween zodra iemand de verpakking opende.</p>
+
 <h3>6. De wet van de bijna lege emmer</h3>
 <div class="formula"><div class="equation">W<sub>emmer</sub> = W<sub>leeg</sub> + α × Verwachting</div><small>Bucket Expectation Hypothesis · 2059</small></div>
 <p>Sil beweerde dat een lege emmer zwaarder aanvoelt wanneer je denkt dat hij vol zit. In werkelijkheid beschreef hij vooral verwachting en inspanning, maar hij presenteerde de formule met voldoende Griekse letters om indruk te maken op een conferentie.</p>
 <div class="callout"><strong>Redactionele waarschuwing:</strong> Deze zes modellen zijn humoristische verzinsels uit de legende van Sil. Alleen de standaardrelatie tussen massa, dichtheid en volume is hier gebaseerd op gewone natuurkunde; de overige formules zijn geen wetenschappelijke wetten.</div>
 </div></section>
+
 <section id="draconite"><div class="wrap">
 <div class="eyebrow">Hoofdstuk VI · Het onmogelijk diepe project</div><h2>Draconite: de steen<br>die de aarde geheimhield.</h2>
 <p class="intro">In 2057 begon Sil aan zijn grootste onderzoek: Project Draconite. Het doel was een mysterieuze, donkerblauwe mineraalachtige substantie te bestuderen die volgens een reeks twijfelachtige meetgegevens diep onder de aardkorst zou bestaan.</p>
@@ -143,8 +204,13 @@ footer{padding:40px 0;color:#aaa996;font:.82rem Arial,sans-serif}.footerinner{di
 <div class="formula"><div class="equation">E<sub>D</sub> = κ × m<sub>D</sub> × ΔT × R</div><small>Draconite Energy Hypothesis · fictief model, 2062</small></div>
 <p>In Sil’s fictieve model staat κ voor een onbekende materiaalconstante, m<sub>D</sub> voor de massa van Draconite, ΔT voor een temperatuurverschil en R voor de “reactiviteit van de steen”. Omdat de constante nooit onafhankelijk is vastgesteld, kan deze formule geen echte energieopbrengst voorspellen.</p>
 <h4>Waarom Draconite de wereld zou veranderen</h4>
-<div class="grid"><article class="card"><div class="number">EIGENSCHAP A</div><h3>Warmte zonder haast</h3><p>Volgens Sil bleef een Draconite-monster warmte afgeven lang nadat de omgeving was afgekoeld. Hij noemde het “de steen die zijn jas niet uitdoet”.</p></article><article class="card"><div class="number">EIGENSCHAP B</div><h3>Een blauwe gloed</h3><p>In zijn notities leek het mineraal in het donker blauw te gloeien. De foto’s uit het dossier zijn helaas allemaal overbelicht of gemaakt met een telefoon uit 2049.</p></article><article class="card"><div class="number">EIGENSCHAP C</div><h3>Meetbare koppigheid</h3><p>De meetwaarden veranderden wanneer Sil het monster verplaatste. Hij concludeerde dat Draconite “een hekel had aan verhuizen”.</p></article></div>
+<div class="grid">
+<article class="card"><div class="number">EIGENSCHAP A</div><h3>Warmte zonder haast</h3><p>Volgens Sil bleef een Draconite-monster warmte afgeven lang nadat de omgeving was afgekoeld. Hij noemde het “de steen die zijn jas niet uitdoet”.</p></article>
+<article class="card"><div class="number">EIGENSCHAP B</div><h3>Een blauwe gloed</h3><p>In zijn notities leek het mineraal in het donker blauw te gloeien. De foto’s uit het dossier zijn helaas allemaal overbelicht of gemaakt met een telefoon uit 2049.</p></article>
+<article class="card"><div class="number">EIGENSCHAP C</div><h3>Meetbare koppigheid</h3><p>De meetwaarden veranderden wanneer Sil het monster verplaatste. Hij concludeerde dat Draconite “een hekel had aan verhuizen”.</p></article>
+</div>
 </div></section>
+
 <section id="nobel"><div class="wrap">
 <div class="eyebrow">Hoofdstuk VII · De prijsuitreiking</div><h2>De Nobelprijs voor<br>een steen die niet bestond.</h2>
 <div class="prose">
@@ -155,17 +221,19 @@ footer{padding:40px 0;color:#aaa996;font:.82rem Arial,sans-serif}.footerinner{di
 </div>
 <div class="pullquote">“Ik wil deze prijs opdragen aan mijn team. Zonder hen had ik Draconite nooit gevonden. Vooral omdat zij de uitgang bewaakten.”</div>
 </div></section>
+
 <section id="citaten"><div class="wrap">
 <div class="eyebrow">Hoofdstuk VIII · De mondelinge nalatenschap</div><h2>Vier citaten voor<br>de geschiedenisboeken.</h2>
-<p class="intro">Upload je eigen afbeeldingen voor de vier quote-kaarten. De afbeelding verschijnt direct in de kaart zodra je een bestand kiest. Gebruik bijvoorbeeld <strong>afbeelding1.jpg</strong> tot en met <strong>afbeelding4.jpg</strong>; de bestandsnamen zijn vrij, je kiest ze via de uploadknop.</p>
+<p class="intro">De vier afbeeldingen worden rechtstreeks uit je GitHub-repository geladen. Upload de bestanden met exact deze namen — <strong>afbeelding1.png</strong>, <strong>afbeelding2.png</strong>, <strong>afbeelding3.png</strong> en <strong>afbeelding4.png</strong> — naar dezelfde map als dit bestand <code>index.html</code>. Daarna verschijnen ze automatisch op de website.</p>
 <div class="quotegrid">
-<div class="quote-card" id="quoteCard1"><div class="quote-image"><div class="eyebrow">Uit de archieven · 2029</div><div class="quote-mark">“</div><blockquote>Als de kolen zwart zijn, waarom is de nacht dan niet gewoon een mijn?</blockquote><cite>Sil · Dagboek, 2029</cite></div><div class="quote-upload"><label for="afbeelding1">Afbeelding 1 uploaden</label><input id="afbeelding1" type="file" accept="image/*" data-target="photo1"><img class="quote-photo" id="photo1" alt="Geüploade afbeelding bij citaat 1"><p>Kies afbeelding1 vanaf je computer. Alleen deze kaart wordt aangepast.</p></div></div>
-<div class="quote-card" id="quoteCard2"><div class="quote-image"><div class="eyebrow">Werkfilosofie · 2034</div><div class="quote-mark">“</div><blockquote>Ik ben geen gewone mijnwerker. Ik ben een natuurkundige die toevallig beneden werkt.</blockquote><cite>Sil · Sollicitatiegesprek, 2034</cite></div><div class="quote-upload"><label for="afbeelding2">Afbeelding 2 uploaden</label><input id="afbeelding2" type="file" accept="image/*" data-target="photo2"><img class="quote-photo" id="photo2" alt="Geüploade afbeelding bij citaat 2"><p>Kies afbeelding2 vanaf je computer. Alleen deze kaart wordt aangepast.</p></div></div>
-<div class="quote-card" id="quoteCard3"><div class="quote-image"><div class="eyebrow">Toegepaste economie · 2047</div><div class="quote-mark">“</div><blockquote>De massa is gelijk aan dichtheid keer volume. Mijn salaris is gelijk aan volume keer teleurstelling.</blockquote><cite>Sil · Lezing over economie, 2047</cite></div><div class="quote-upload"><label for="afbeelding3">Afbeelding 3 uploaden</label><input id="afbeelding3" type="file" accept="image/*" data-target="photo3"><img class="quote-photo" id="photo3" alt="Geüploade afbeelding bij citaat 3"><p>Kies afbeelding3 vanaf je computer. Alleen deze kaart wordt aangepast.</p></div></div>
-<div class="quote-card" id="quoteCard4"><div class="quote-image"><div class="eyebrow">Laatste interview · 2076</div><div class="quote-mark">“</div><blockquote>Ik geloof niet in bijgeloof. Behalve op vrijdag. Dan neem ik mijn eigen helm mee.</blockquote><cite>Sil · Laatste interview, 2076</cite></div><div class="quote-upload"><label for="afbeelding4">Afbeelding 4 uploaden</label><input id="afbeelding4" type="file" accept="image/*" data-target="photo4"><img class="quote-photo" id="photo4" alt="Geüploade afbeelding bij citaat 4"><p>Kies afbeelding4 vanaf je computer. Alleen deze kaart wordt aangepast.</p></div></div>
+<div class="quote-card"><div class="quote-image"><div class="eyebrow">Uit de archieven · 2029</div><div class="quote-mark">“</div><blockquote>Als de kolen zwart zijn, waarom is de nacht dan niet gewoon een mijn?</blockquote><cite>Sil · Dagboek, 2029</cite></div><img class="quote-photo" src="./afbeelding1.png" alt="Sil in de mijn — quote afbeelding 1" loading="lazy" onerror="this.hidden=true"></div>
+<div class="quote-card"><div class="quote-image"><div class="eyebrow">Werkfilosofie · 2034</div><div class="quote-mark">“</div><blockquote>Ik ben geen gewone mijnwerker. Ik ben een natuurkundige die toevallig beneden werkt.</blockquote><cite>Sil · Sollicitatiegesprek, 2034</cite></div><img class="quote-photo" src="./afbeelding2.png" alt="Sil in de mijn — quote afbeelding 2" loading="lazy" onerror="this.hidden=true"></div>
+<div class="quote-card"><div class="quote-image"><div class="eyebrow">Toegepaste economie · 2047</div><div class="quote-mark">“</div><blockquote>De massa is gelijk aan dichtheid keer volume. Mijn salaris is gelijk aan volume keer teleurstelling.</blockquote><cite>Sil · Lezing over economie, 2047</cite></div><img class="quote-photo" src="./afbeelding3.png" alt="Sil in de mijn — quote afbeelding 3" loading="lazy" onerror="this.hidden=true"></div>
+<div class="quote-card"><div class="quote-image"><div class="eyebrow">Laatste interview · 2076</div><div class="quote-mark">“</div><blockquote>Ik geloof niet in bijgeloof. Behalve op vrijdag. Dan neem ik mijn eigen helm mee.</blockquote><cite>Sil · Laatste interview, 2076</cite></div><img class="quote-photo" src="./afbeelding4.png" alt="Sil in de mijn — quote afbeelding 4" loading="lazy" onerror="this.hidden=true"></div>
 </div>
-<p class="disclaimer">Let op: de gekozen afbeeldingen worden direct in je browser getoond, maar niet automatisch naar GitHub geüpload of permanent opgeslagen. Wil je ze op de gepubliceerde website zien, zet de afbeeldingsbestanden dan ook in je GitHub-repository en vervang de uploadvelden door gewone afbeeldingspaden zoals <code>afbeelding1.jpg</code>. De huidige uploadfunctie is handig om lokaal te testen.</p>
+<p class="disclaimer">Bestandsnamen zijn hoofdlettergevoelig. Gebruik exact <code>afbeelding1.png</code> tot en met <code>afbeelding4.png</code>. De afbeeldingen moeten in dezelfde map staan als <code>index.html</code>. Als een afbeelding ontbreekt, wordt het lege afbeeldingsvak verborgen.</p>
 </div></section>
+
 <section id="collegas"><div class="wrap">
 <div class="eyebrow">Hoofdstuk IX · Getuigenverklaringen</div><h2>Wat zijn collega’s<br>zich blijven herinneren.</h2>
 <div class="grid">
@@ -174,6 +242,7 @@ footer{padding:40px 0;color:#aaa996;font:.82rem Arial,sans-serif}.footerinner{di
 <article class="card"><div class="number">GETUIGE C · FAMILIEVRIEND</div><h3>“Hij was altijd bezig.”</h3><p>“Zelfs op verjaardagen vroeg hij of de taart een homogene massa was. We gaven hem uiteindelijk een taart met een meetlint erbij.”</p></article>
 </div>
 </div></section>
+
 <section id="nalatenschap"><div class="wrap">
 <div class="eyebrow">Hoofdstuk X · De legende blijft bestaan</div><h2>Wat bleef er over<br>na 2078?</h2>
 <div class="prose">
@@ -188,26 +257,5 @@ footer{padding:40px 0;color:#aaa996;font:.82rem Arial,sans-serif}.footerinner{di
 </main>
 <footer><div class="wrap footerinner"><span>© Het Sil-archief · 2013–2078</span><span>Een monument voor wetenschap, steenkool en buitengewoon slechte dieptemetingen.</span></div></footer>
 <a class="backtop" href="#top">↑ TERUG NAAR BOVEN</a>
-<script>
-document.querySelectorAll('input[type="file"][data-target]').forEach(function(input){
-  input.addEventListener('change',function(){
-    const file=this.files && this.files[0];
-    if(!file) return;
-    if(!file.type.startsWith('image/')) { alert('Kies alsjeblieft een afbeeldingsbestand.'); this.value=''; return; }
-    const target=document.getElementById(this.dataset.target);
-    const card=this.closest('.quote-card');
-    if(target.dataset.objectUrl) URL.revokeObjectURL(target.dataset.objectUrl);
-    const url=URL.createObjectURL(file);
-    target.src=url;
-    target.dataset.objectUrl=url;
-    target.alt='Geüploade afbeelding: '+file.name;
-    card.classList.add('has-photo');
-  });
-});
-</script>
 </body>
-</html>'''
-
-path = Path("/mnt/data/index.html")
-path.write_text(html, encoding="utf-8")
-print(f"Nieuwe uitgebreide website gemaakt: {path} ({len(html):,} tekens)")
+</html>
